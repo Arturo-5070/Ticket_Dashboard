@@ -11,6 +11,8 @@ import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime, timezone
 
+key_dict = json.loads((st.secrets["textkey"]))
+
 # ─────────────────────────────────────────────────────────────────────────────
 # CONFIGURACION DE LA PAGINA
 # ─────────────────────────────────────────────────────────────────────────────
@@ -239,9 +241,9 @@ button[kind="secondary"] { background-color: var(--surface) !important; border: 
 @st.cache_resource
 def get_db():
     """Return a cached Firestore client."""
-    return firestore.Client.from_service_account_json(
-        "/content/support-tickets-d3375-firebase-adminsdk-fbsvc-09b15b011c.json"   # ← actualizar las credenciales de firestore
-    )
+    creds = service_account.Credentials.from_service_account_info(key_dict)
+    return firestore.Client(credentials=creds, project="support-tickets")
+    
 
 @st.cache_data   # sin ttl: el caché persiste toda la sesión, se refresca manualmente
 def load_tickets(limit: int = 3000) -> pd.DataFrame:
