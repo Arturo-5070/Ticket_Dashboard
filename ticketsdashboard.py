@@ -1,4 +1,3 @@
-import streamlit as st
 from google.cloud import firestore
 from google.oauth2 import service_account
 import pandas as pd
@@ -7,6 +6,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime, timezone
 import json
+import streamlit as st
 
 key_dict = json.loads((st.secrets["textkey"]))
 
@@ -240,7 +240,7 @@ def get_db():
     """Return a cached Firestore client."""
     creds = service_account.Credentials.from_service_account_info(key_dict)
     return firestore.Client(credentials=creds, project="support-tickets")
-    
+
 
 @st.cache_data   # sin ttl: el caché persiste toda la sesión, se refresca manualmente
 def load_tickets(limit: int = 3000) -> pd.DataFrame:
