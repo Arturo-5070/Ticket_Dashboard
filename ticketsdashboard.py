@@ -1,8 +1,3 @@
-"""
-Support Tickets Dashboard  —  Streamlit + Firestore
-Run:  streamlit run dashboard.py
-"""
-
 import streamlit as st
 from google.cloud import firestore
 import pandas as pd
@@ -10,6 +5,7 @@ import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime, timezone
+import json
 
 key_dict = json.loads((st.secrets["textkey"]))
 
