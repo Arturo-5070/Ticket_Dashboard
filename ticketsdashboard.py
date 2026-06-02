@@ -242,11 +242,20 @@ def get_db():
     return firestore.Client(credentials=creds, project="support-tickets")
 
 
-@st.cache_data   # sin ttl: el caché persiste toda la sesión, se refresca manualmente
+
+
+@st.cache_data
 def load_tickets(limit: int = 3000) -> pd.DataFrame:
-    db = get_db()
-    docs = db.collection("ID_ticket").limit(limit).stream()
-    records = [doc.to_dict() for doc in docs]
+    try:
+        db = get_db()
+        docs = db.collection("ID_ticket").limit(limit).stream()
+        records = [doc.to_dict() for doc in docs]
+    except Exception as e:
+        # ── Muestra el error real en la UI en lugar de crashear ───────────────
+        st.error(f"❌ Error al conectar con Firestore: {e}")
+        st.info("Verifica los roles IAM del service account y las reglas de Firestore.")
+        st.stop()
+
     df = pd.DataFrame(records)
 
     # ── Lee las fechas correctamente ──────────────────────────────────────────
@@ -263,6 +272,7 @@ def load_tickets(limit: int = 3000) -> pd.DataFrame:
         )
 
     return df
+
 
 # ─────────────────────────────────────────────────────────────────────────────
 # HELPER — marca los registros que se van a colorear
