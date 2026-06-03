@@ -520,10 +520,12 @@ col_p1, col_p2, col_p3 = st.columns(3)
 
 # ── Estilo compartido para las etiquetas de los gráficos de pay ───────────────
 PIE_LABEL_STYLE = dict(
-    textfont_size=13,
+    uniformtext_minsize=13,
+    uniformtext_mode='hide',
     textfont_color="#ffffff",       # letras blancas, siempre legibles sobre fondo oscuro
     textinfo="percent+label",       # muestra tanto el % como el nombre del segmento
-    insidetextorientation="horizontal",   # auto plotly elige el mejor ángulo automáticamente
+    #insidetextorientation="Auto",   # auto plotly elige el mejor ángulo automáticamente
+    textposition='inside',
 )
 
 # ── Configuración compartida de leyenda: horizontal al pie de la gráfica ──────
