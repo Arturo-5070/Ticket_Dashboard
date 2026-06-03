@@ -194,7 +194,7 @@ button[kind="secondary"] { background-color: var(--surface) !important; border: 
 }
 .kpi-value {
     font-family: 'Space Mono', monospace;
-    font-size: 2rem;
+    font-size: clamp(1.2rem, 3.5vw, 2rem);
     font-weight: 700;
     color: var(--txt) !important;
     line-height: 1;
@@ -569,11 +569,11 @@ with col_p1:
         fig_pri.update_traces(**PIE_LABEL_STYLE)
         fig_pri.update_layout(
             legend=LEGEND_BOTTOM,
-            uniformtext_minsize=12, 
+            uniformtext_minsize=12,
             uniformtext_mode='hide',
             title=dict(font=dict(color="#e2e8f0", size=14)),
             margin=dict(t=40, b=80, l=10, r=10),   # espacio extra abajo para la leyenda
-        
+
         )
         st.plotly_chart(dark_fig(fig_pri), use_container_width=True)
 
@@ -594,7 +594,7 @@ with col_p2:
         fig_sta.update_traces(**PIE_LABEL_STYLE)
         fig_sta.update_layout(
             legend=LEGEND_BOTTOM,
-            uniformtext_minsize=12, 
+            uniformtext_minsize=12,
             uniformtext_mode='hide',
             title=dict(font=dict(color="#e2e8f0", size=14)),
             margin=dict(t=40, b=80, l=10, r=10),
@@ -618,7 +618,7 @@ with col_p3:
         fig_typ.update_traces(**PIE_LABEL_STYLE)
         fig_typ.update_layout(
             legend=LEGEND_BOTTOM,
-            uniformtext_minsize=12, 
+            uniformtext_minsize=12,
             uniformtext_mode='hide',
             title=dict(font=dict(color="#e2e8f0", size=14)),
             margin=dict(t=40, b=80, l=10, r=10),
