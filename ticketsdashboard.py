@@ -803,7 +803,7 @@ if "issue_created" in df.columns and df["issue_created"].notna().any():
         )
 
         # ── Dos saltos de línea antes de renderizar la gráfica ────────────────
-        st.markdown("<br><br>", unsafe_allow_html=True)
+        st.markdown("<br><br><br><br>", unsafe_allow_html=True)
         st.plotly_chart(dark_fig(fig_tl), use_container_width=True)
 
         # ── Minigráfico: promedio móvil (solo para datos diarios/semanales) ───
