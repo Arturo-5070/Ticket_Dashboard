@@ -757,8 +757,6 @@ if "issue_created" in df.columns and df["issue_created"].notna().any():
                 color_discrete_sequence=PIE_COLORS,
                 labels={"issue_priority": "Priority"},
             )
-
-            
             # ── Superponer el total como una línea discontinua blanca ─────────
             fig_tl.add_scatter(
                 x=tl_total["Date"], y=tl_total["Tickets"],
@@ -778,13 +776,10 @@ if "issue_created" in df.columns and df["issue_created"].notna().any():
         fig_tl.update_layout(
             hovermode="x unified",
             # ── Dos saltos de línea de margen entre el título y la gráfica ───
-            margin=dict(t=100, b=10, l=10, r=10),
-            xanchor="left",
-            yanchor="top",
+            margin=dict(t=60, b=10, l=10, r=10),
             title=dict(
                 font=dict(color="#e2e8f0", size=15),
-                pad=dict(t=20),             # espacio extra debajo del título
-
+                pad=dict(t=10),             # espacio extra debajo del título
             ),
             xaxis=dict(
                 showgrid=True,
