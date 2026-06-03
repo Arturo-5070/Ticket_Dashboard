@@ -796,7 +796,7 @@ if "issue_created" in df.columns and df["issue_created"].notna().any():
             ),
             legend=dict(
                 orientation="h",
-                yanchor="bottom", y=0,
+                yanchor="top", 
                 xanchor="right",  x=1,
                 font=dict(color="#e2e8f0", size=12),
             ),
