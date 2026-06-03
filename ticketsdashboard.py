@@ -779,7 +779,7 @@ if "issue_created" in df.columns and df["issue_created"].notna().any():
             margin=dict(t=20, b=10, l=10, r=10),
             title=dict(
                 font=dict(color="#e2e8f0", size=15),
-                pad=dict(t=40),             # espacio extra debajo del título
+                pad=dict(t=10),             # espacio extra debajo del título
             ),
             xaxis=dict(
                 showgrid=True,
@@ -796,7 +796,7 @@ if "issue_created" in df.columns and df["issue_created"].notna().any():
             ),
             legend=dict(
                 orientation="h",
-                yanchor="top", y=.02,
+                yanchor="bottom", y=0,
                 xanchor="right",  x=1,
                 font=dict(color="#e2e8f0", size=12),
             ),
