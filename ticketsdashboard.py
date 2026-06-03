@@ -234,6 +234,7 @@ button[kind="secondary"] { background-color: var(--surface) !important; border: 
 
 # ─────────────────────────────────────────────────────────────────────────────
 # FIRESTORE — Conexion y carga de los datos (se usa el caché para mayor rápidez)
+#Recordar cambiar el nombre del project
 # ─────────────────────────────────────────────────────────────────────────────
 @st.cache_resource
 def get_db():
@@ -522,7 +523,7 @@ PIE_LABEL_STYLE = dict(
     textfont_size=13,
     textfont_color="#ffffff",       # letras blancas, siempre legibles sobre fondo oscuro
     textinfo="percent+label",       # muestra tanto el % como el nombre del segmento
-    insidetextorientation="auto",   # plotly elige el mejor ángulo automáticamente
+    insidetextorientation="horizontal",   # auto plotly elige el mejor ángulo automáticamente
 )
 
 # ── Configuración compartida de leyenda: horizontal al pie de la gráfica ──────
