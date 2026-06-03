@@ -194,7 +194,7 @@ button[kind="secondary"] { background-color: var(--surface) !important; border: 
 }
 .kpi-value {
     font-family: 'Space Mono', monospace;
-    font-size: clamp(1.2rem, 3.5vw, 2rem);
+    font-size: clamp(1rem, 3.5vw, 2rem);
     font-weight: 700;
     color: var(--txt) !important;
     line-height: 1;
@@ -757,6 +757,8 @@ if "issue_created" in df.columns and df["issue_created"].notna().any():
                 color_discrete_sequence=PIE_COLORS,
                 labels={"issue_priority": "Priority"},
             )
+
+            
             # ── Superponer el total como una línea discontinua blanca ─────────
             fig_tl.add_scatter(
                 x=tl_total["Date"], y=tl_total["Tickets"],
@@ -776,10 +778,15 @@ if "issue_created" in df.columns and df["issue_created"].notna().any():
         fig_tl.update_layout(
             hovermode="x unified",
             # ── Dos saltos de línea de margen entre el título y la gráfica ───
-            margin=dict(t=60, b=10, l=10, r=10),
+            margin=dict(t=100, b=10, l=10, r=10),
+            y=0.98,                         # título hasta arriba
+            x=0.5,                          # centrado
+            xanchor="center",
+            yanchor="top",
             title=dict(
                 font=dict(color="#e2e8f0", size=15),
                 pad=dict(t=10),             # espacio extra debajo del título
+
             ),
             xaxis=dict(
                 showgrid=True,
@@ -796,7 +803,7 @@ if "issue_created" in df.columns and df["issue_created"].notna().any():
             ),
             legend=dict(
                 orientation="h",
-                yanchor="bottom", y=1.02,
+                yanchor="bottom", y=.88,
                 xanchor="right",  x=1,
                 font=dict(color="#e2e8f0", size=12),
             ),
