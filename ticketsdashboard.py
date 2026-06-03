@@ -776,7 +776,7 @@ if "issue_created" in df.columns and df["issue_created"].notna().any():
         fig_tl.update_layout(
             hovermode="x unified",
             # ── Dos saltos de línea de margen entre el título y la gráfica soto───
-            margin=dict(t=80, b=10, l=10, r=10),
+            margin=dict(t=20, b=40, l=10, r=10),
             title=dict(
                 font=dict(color="#e2e8f0", size=15),
                 pad=dict(t=10),             # espacio extra debajo del título
@@ -796,7 +796,7 @@ if "issue_created" in df.columns and df["issue_created"].notna().any():
             ),
             legend=dict(
                 orientation="h",
-                yanchor="bottom", y=.02,
+                yanchor="top", y=.02,
                 xanchor="right",  x=1,
                 font=dict(color="#e2e8f0", size=12),
             ),
