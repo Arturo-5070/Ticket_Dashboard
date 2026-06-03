@@ -779,13 +779,11 @@ if "issue_created" in df.columns and df["issue_created"].notna().any():
             hovermode="x unified",
             # ── Dos saltos de línea de margen entre el título y la gráfica ───
             margin=dict(t=100, b=10, l=10, r=10),
-            y=0.98,                         # título hasta arriba
-            x=0.5,                          # centrado
-            xanchor="center",
+            xanchor="left",
             yanchor="top",
             title=dict(
                 font=dict(color="#e2e8f0", size=15),
-                pad=dict(t=10),             # espacio extra debajo del título
+                pad=dict(t=20),             # espacio extra debajo del título
 
             ),
             xaxis=dict(
@@ -803,7 +801,7 @@ if "issue_created" in df.columns and df["issue_created"].notna().any():
             ),
             legend=dict(
                 orientation="h",
-                yanchor="bottom", y=.88,
+                yanchor="bottom", y=1.02,
                 xanchor="right",  x=1,
                 font=dict(color="#e2e8f0", size=12),
             ),
