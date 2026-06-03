@@ -747,7 +747,7 @@ if "issue_created" in df.columns and df["issue_created"].notna().any():
             tl_pri["issue_priority"] = tl_pri["issue_priority"].astype(str)
 
             # ── Salto de línea entre el encabezado y el título de la gráfica ─
-            st.markdown("<br>", unsafe_allow_html=True)
+            #st.markdown("<br>", unsafe_allow_html=True)
 
             fig_tl = px.area(
                 tl_pri,
@@ -776,7 +776,7 @@ if "issue_created" in df.columns and df["issue_created"].notna().any():
         fig_tl.update_layout(
             hovermode="x unified",
             # ── Dos saltos de línea de margen entre el título y la gráfica soto───
-            margin=dict(t=100, b=10, l=10, r=10),
+            margin=dict(t=200, b=10, l=10, r=10),
             title=dict(
                 font=dict(color="#e2e8f0", size=15),
                 pad=dict(t=10),             # espacio extra debajo del título
