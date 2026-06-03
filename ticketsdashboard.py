@@ -775,8 +775,8 @@ if "issue_created" in df.columns and df["issue_created"].notna().any():
 
         fig_tl.update_layout(
             hovermode="x unified",
-            # ── Dos saltos de línea de margen entre el título y la gráfica ───
-            margin=dict(t=60, b=10, l=10, r=10),
+            # ── Dos saltos de línea de margen entre el título y la gráfica soto───
+            margin=dict(t=100, b=10, l=10, r=10),
             title=dict(
                 font=dict(color="#e2e8f0", size=15),
                 pad=dict(t=10),             # espacio extra debajo del título
@@ -802,8 +802,8 @@ if "issue_created" in df.columns and df["issue_created"].notna().any():
             ),
         )
 
-        # ── Dos saltos de línea antes de renderizar la gráfica ────────────────
-        st.markdown("<br><br><br><br>", unsafe_allow_html=True)
+        # ── un saltos de línea antes de renderizar la gráfica ────────────────
+        st.markdown("<br>", unsafe_allow_html=True)
         st.plotly_chart(dark_fig(fig_tl), use_container_width=True)
 
         # ── Minigráfico: promedio móvil (solo para datos diarios/semanales) ───
