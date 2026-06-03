@@ -521,7 +521,7 @@ col_p1, col_p2, col_p3 = st.columns(3)
 # ── Estilo compartido para las etiquetas de los gráficos de pay ───────────────
 PIE_LABEL_STYLE = dict(
     uniformtext_minsize=13,
-    uniformtext_mode='hide',
+    uniformtext_mode='overtext',
     textfont_color="#ffffff",       # letras blancas, siempre legibles sobre fondo oscuro
     textinfo="percent+label",       # muestra tanto el % como el nombre del segmento
     #insidetextorientation="Auto",   # auto plotly elige el mejor ángulo automáticamente
