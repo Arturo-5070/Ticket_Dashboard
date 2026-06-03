@@ -248,7 +248,7 @@ def get_db():
 def load_tickets(limit: int = 3000) -> pd.DataFrame:
     try:
         db = get_db()
-        docs = db.collection("ID_ticket").limit(limit).stream()
+        docs = db.collection("DB_ticket").limit(limit).stream()
         records = [doc.to_dict() for doc in docs]
     except Exception as e:
         # ── Muestra el error real en la UI en lugar de crashear ───────────────
