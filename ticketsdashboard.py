@@ -671,10 +671,10 @@ with col_a:
         st.plotly_chart(dark_fig(fig_asg), use_container_width=True)
 
 # ─────────────────────────────────────────────────────────────────────────────
-# TIMELINE — (Línea de Tiempo) Volumen de entradas a lo largo del tiempo
+# TIMELINE — (Línea de Tiempo) Volumen de entradas a lo largo del tiempo soto
 # ─────────────────────────────────────────────────────────────────────────────
-st.markdown('<div class="section-title">Ticket Volume Over Time</div>', unsafe_allow_html=True)
-
+st.markdown('<div class="section-title">Ticket Volume Over Time</div>','<style> div[data-baseweb="select"] > div { color: #56636D ; }  </style> ', unsafe_allow_html=True)
+ 
 if "issue_created" in df.columns and df["issue_created"].notna().any():
 
     # ── Fila 1: Granularidad + Filtro de periodo por años ────────────────────
@@ -682,7 +682,7 @@ if "issue_created" in df.columns and df["issue_created"].notna().any():
 
     with col_tl_gran:
         granularity = st.selectbox(
-            "Granularidad",
+            "Granularity",
             ["Daily", "Weekly", "Monthly", "Quarterly"],
             index=2,                          # Por defecto: Mensual
             key="timeline_gran",
@@ -698,14 +698,14 @@ if "issue_created" in df.columns and df["issue_created"].notna().any():
 
     with col_tl_yr1:
         anio_desde = st.selectbox(
-            "Año desde",
+            "From Year",
             options=list(range(anio_min, anio_max + 1)),
             index=0,                          # Por defecto: el año más antiguo
             key="tl_anio_desde",
         )
     with col_tl_yr2:
         anio_hasta = st.selectbox(
-            "Año hasta",
+            "To Year",
             options=list(range(anio_min, anio_max + 1)),
             index=len(range(anio_min, anio_max + 1)) - 1,  # Por defecto: el año más reciente
             key="tl_anio_hasta",
@@ -713,7 +713,7 @@ if "issue_created" in df.columns and df["issue_created"].notna().any():
 
     # ── Validación: el año de inicio no puede ser mayor al año final ──────────
     if anio_desde > anio_hasta:
-        st.warning("⚠️ 'Año desde' no puede ser mayor a 'Año hasta'. Ajusta el periodo.")
+        st.warning("⚠️ 'From Year' can't be 'To Year'. Please, Adjust the time period.")
     else:
         # ── Se filtra el dataframe según el periodo de años seleccionado ──────
         df_tl = df[
@@ -796,7 +796,7 @@ if "issue_created" in df.columns and df["issue_created"].notna().any():
             ),
             legend=dict(
                 orientation="h",
-                yanchor="top", 
+                yanchor="top",
                 xanchor="right",  x=1,
                 font=dict(color="#e2e8f0", size=12),
             ),
