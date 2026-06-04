@@ -63,13 +63,12 @@ header[data-testid="stHeader"],
 div[data-testid="stToolbar"] {
     background-color: #0d0f14 !important;
 }
-#colores y formatos de los listas de despliegue
+/*colores y formatos de los listas de despliegue soto */
 /* ── Inputs, selects, multiselects ── */
 div[data-testid="stMultiSelect"] > div,
 div[data-testid="stSelectbox"] > div,
 .stTextInput > div > div,
 div[role="listbox"],
-/* div[role="listbox"] ul li {color: #56636D ;}, */
 div[data-baseweb="select"] > div { color: #56636D ; },
 div[data-baseweb="popover"] {
     background-color: #1c2030 !important;
