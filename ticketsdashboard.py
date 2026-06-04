@@ -416,7 +416,7 @@ st.markdown("""
     <div>
         <h1>Ticket Status & Metrics Dashboard</h1>
         <div style="color:#64748b;font-size:.8rem;margin-top:.25rem">
-           Using Google Cloude Tools (Colab · GitHub · Streamlite frontend · Firestore backend)
+           Google Cloud :: Colab · GitHub · Firestore backend · Streamlite frontend
         </div>
     </div>
     <div class="badge">Test</div>
