@@ -28,7 +28,6 @@ st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap');
 
-/* ── Fuerza el tema oscuro independientemente de la combinación de colores preferida ── */
 :root, html[data-theme], html[data-theme="light"], html[data-theme="dark"] {
     color-scheme: dark !important;
     --bg:        #0d0f14;
@@ -43,7 +42,6 @@ st.markdown("""
     --txt-muted: #64748b;
 }
 
-/* ── Elimina cualquier superficie blanca/clara que inyecte Streamlit. ── */
 html, body,
 .stApp, .stApp > div,
 .main, .main > div,
@@ -58,65 +56,70 @@ div[data-testid="stHorizontalBlock"] {
     font-family: 'DM Sans', sans-serif !important;
 }
 
-/* ── Barra de herramientas/barra superior de Streamlit ── */
 header[data-testid="stHeader"],
 div[data-testid="stToolbar"] {
     background-color: #0d0f14 !important;
 }
-/*colores y formatos de los listas de despliegue soto */
-/* ── Inputs, selects, multiselects ── */
+
+/* ── Inputs, selects, multiselects — backgrounds ── */
 div[data-testid="stMultiSelect"] > div,
 div[data-testid="stSelectbox"] > div,
 .stTextInput > div > div,
 div[role="listbox"],
-div[data-baseweb="select"] ,
-div[data-baseweb="select"] [data-testid="stWidgetLabel"] ~ div,
+div[data-baseweb="select"] {
+    background-color: #1c2030 !important;
+    border-color: var(--border) !important;
+}
+
+/* ── Dropdown selected value & placeholder text ── */
 div[data-baseweb="select"] span,
 div[data-baseweb="select"] div[class*="ValueContainer"] span,
 div[data-baseweb="select"] div[class*="singleValue"],
-div[data-baseweb="select"] div[class*="placeholder"] {
+div[data-baseweb="select"] div[class*="placeholder"],
+div[data-baseweb="select"] [data-testid="stWidgetLabel"] ~ div {
     color: #2D4256 !important;
 }
+
+/* ── Open dropdown list — background ── */
 div[data-baseweb="popover"] {
     background-color: #1c2030 !important;
     border-color: var(--border) !important;
-    color: var(--txt) !important;
 }
+
+/* ── Open dropdown list — option text ── */
 div[data-baseweb="popover"] li,
 div[data-baseweb="popover"] li span,
 div[data-baseweb="popover"] [role="option"],
-div[data-baseweb="popover"] [role="option"] span {
+div[data-baseweb="popover"] [role="option"] span,
+div[data-baseweb="menu"] li,
+div[data-baseweb="menu"] li span {
     color: #2D4256 !important;
 }
 
-
-
+/* ── Multiselect chips ── */
 div[data-baseweb="tag"] {
     background-color: #252a36 !important;
-    color: var(--txt) !important;
+}
+div[data-baseweb="tag"] span {
+    color: #2D4256 !important;
 }
 
+/* ── Checkboxes / Labels — scoped, NOT universal div/span ── */
+label[data-testid="stCheckbox"] span { color: var(--txt) !important; }
+p, label { color: var(--txt) !important; }
 
-/* ── Checkboxes / Etiquetas ── */
-label[data-testid="stCheckbox"] span,
-p, span, label, div { color: var(--txt) !important; }
-
-/* ── Divisores ── */
 hr { border-color: var(--border) !important; }
 
-/* ── Plotly contenedores de gráficas ── */
 div[data-testid="stPlotlyChart"] > div {
     background-color: transparent !important;
 }
 
-/* ── Dataframe / Tabla ── */
 div[data-testid="stDataFrame"] iframe,
 div[data-testid="stDataFrame"] > div {
     background-color: var(--surface) !important;
     color: var(--txt) !important;
 }
-/* ¡¡ Importante !!*/
-/* ── Sidebar ── */
+
 section[data-testid="stSidebar"],
 section[data-testid="stSidebar"] > div {
     background-color: #10131a !important;
@@ -137,16 +140,13 @@ section[data-testid="stSidebar"] .stTextInput label {
     color: var(--txt-muted) !important;
 }
 
-/* ── Caption / texto pequeño ── */
 .stCaption, small, [data-testid="stCaptionContainer"] {
     color: var(--txt-muted) !important;
 }
 
-/* ── Botones ── */
 button[kind="primary"]   { background-color: var(--accent)  !important; border: none !important; }
 button[kind="secondary"] { background-color: var(--surface) !important; border: 1px solid var(--border) !important; color: var(--txt) !important; }
 
-/* ── Franja del Header  ── */
 .dash-header {
     background: linear-gradient(135deg, #1a1f2e 0%, #0d1117 100%);
     border-bottom: 2px solid var(--accent);
@@ -176,7 +176,6 @@ button[kind="secondary"] { background-color: var(--surface) !important; border: 
     margin-top: .2rem;
 }
 
-/* ── KPI tarjetas ── */
 .kpi-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -222,7 +221,6 @@ button[kind="secondary"] { background-color: var(--surface) !important; border: 
     margin-top: .35rem;
 }
 
-/* ── Cabeceras de la Sección  ── */
 .section-title {
     font-family: 'Space Mono', monospace;
     font-size: .85rem;
@@ -234,7 +232,6 @@ button[kind="secondary"] { background-color: var(--surface) !important; border: 
     border-left: 3px solid var(--accent);
 }
 
-/* ── Fichas para el conteo ── */
 .count-chip {
     display: inline-block;
     background: var(--border);
