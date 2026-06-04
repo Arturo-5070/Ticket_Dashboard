@@ -68,7 +68,7 @@ div[data-testid="stToolbar"] {
 div[data-testid="stMultiSelect"] > div,
 div[data-testid="stSelectbox"] > div,
 .stTextInput > div > div,
-div[role="listbox"],
+div[role="listbox"] ul li {color: #56636D ;},
 div[data-baseweb="select"] > div { color: #56636D ; },
 div[data-baseweb="popover"] {
     background-color: #1c2030 !important;
@@ -671,10 +671,10 @@ with col_a:
         st.plotly_chart(dark_fig(fig_asg), use_container_width=True)
 
 # ─────────────────────────────────────────────────────────────────────────────
-# TIMELINE — (Línea de Tiempo) Volumen de entradas a lo largo del tiempo 
+# TIMELINE — (Línea de Tiempo) Volumen de entradas a lo largo del tiempo
 # ─────────────────────────────────────────────────────────────────────────────
 st.markdown('<div class="section-title">Ticket Volume Over Time</div>', unsafe_allow_html=True)
- 
+
 if "issue_created" in df.columns and df["issue_created"].notna().any():
 
     # ── Fila 1: Granularidad + Filtro de periodo por años ────────────────────
