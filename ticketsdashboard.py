@@ -673,7 +673,7 @@ with col_a:
 # ─────────────────────────────────────────────────────────────────────────────
 # TIMELINE — (Línea de Tiempo) Volumen de entradas a lo largo del tiempo soto
 # ─────────────────────────────────────────────────────────────────────────────
-st.markdown('<div class="section-title">Ticket Volume Over Time</div>','<style> div[data-baseweb="select"] > div { color: #56636D ; }  </style> ', unsafe_allow_html=True)
+st.markdown('<div class="section-title">Ticket Volume Over Time</div>', unsafe_allow_html=True)
  
 if "issue_created" in df.columns and df["issue_created"].notna().any():
 
@@ -775,7 +775,7 @@ if "issue_created" in df.columns and df["issue_created"].notna().any():
 
         fig_tl.update_layout(
             hovermode="x unified",
-            # ── Dos saltos de línea de margen entre el título y la gráfica soto───
+            # ── Dos saltos de línea de margen entre el título y la gráfica───
             margin=dict(t=20, b=10, l=10, r=10),
             title=dict(
                 font=dict(color="#e2e8f0", size=15),
