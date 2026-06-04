@@ -68,17 +68,34 @@ div[data-testid="stToolbar"] {
 div[data-testid="stMultiSelect"] > div,
 div[data-testid="stSelectbox"] > div,
 .stTextInput > div > div,
-div[role="listbox"] ul li {color: #56636D ;},
-div[data-baseweb="select"] > div { color: #56636D ; },
+div[role="listbox"],
+div[data-baseweb="select"] ,
+div[data-baseweb="select"] [data-testid="stWidgetLabel"] ~ div,
+div[data-baseweb="select"] span,
+div[data-baseweb="select"] div[class*="ValueContainer"] span,
+div[data-baseweb="select"] div[class*="singleValue"],
+div[data-baseweb="select"] div[class*="placeholder"] {
+    color: #2D4256 !important;
+}
 div[data-baseweb="popover"] {
     background-color: #1c2030 !important;
     border-color: var(--border) !important;
     color: var(--txt) !important;
 }
+div[data-baseweb="popover"] li,
+div[data-baseweb="popover"] li span,
+div[data-baseweb="popover"] [role="option"],
+div[data-baseweb="popover"] [role="option"] span {
+    color: #2D4256 !important;
+}
+
+
+
 div[data-baseweb="tag"] {
     background-color: #252a36 !important;
     color: var(--txt) !important;
 }
+
 
 /* ── Checkboxes / Etiquetas ── */
 label[data-testid="stCheckbox"] span,
@@ -235,7 +252,7 @@ button[kind="secondary"] { background-color: var(--surface) !important; border: 
 
 # ─────────────────────────────────────────────────────────────────────────────
 # FIRESTORE — Conexion y carga de los datos (se usa el caché para mayor rápidez)
-#Recordar cambiar el nombre del projecto, puede usarse el project id
+# RECORDAR---- cambiar el nombre del projecto, puede usarse el project id
 # ─────────────────────────────────────────────────────────────────────────────
 @st.cache_resource
 def get_db():
