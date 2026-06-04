@@ -673,7 +673,7 @@ with col_a:
 # ─────────────────────────────────────────────────────────────────────────────
 # TIMELINE — (Línea de Tiempo) Volumen de entradas a lo largo del tiempo soto
 # ─────────────────────────────────────────────────────────────────────────────
-st.markdown('<div class="section-title">Ticket Volume Over Time</div> <style> div[data-baseweb="select"] > div { color: #56636D ; }  </style> ', unsafe_allow_html=True)
+st.markdown('<div class="section-title">Ticket Volume Over Time</div> <style> div[data-baseweb="select"] > div { color: #56636D ; } div[role="listbox"] ul li {color: #56636D ;} </style> ', unsafe_allow_html=True)
  
 if "issue_created" in df.columns and df["issue_created"].notna().any():
 
