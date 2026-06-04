@@ -27,7 +27,7 @@ st.set_page_config(
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap');
-
+/* ── Hay que tener cuidado con los siguientes colores y donde se estan aplicando ── */
 :root, html[data-theme], html[data-theme="light"], html[data-theme="dark"] {
     color-scheme: dark !important;
     --bg:        #0d0f14;
@@ -104,7 +104,7 @@ div[data-baseweb="tag"] span {
     color: #2D4256 !important;
 }
 
-/* ── Checkboxes / Labels — scoped, NOT universal div/span ── */
+/* ── Checkboxes / Labels — Aqui hay que delimitar bien los estilo para que NO se apliquen de forma global div/span ── */
 label[data-testid="stCheckbox"] span { color: var(--txt) !important; }
 p, label { color: var(--txt) !important; }
 
@@ -416,7 +416,7 @@ st.markdown("""
     <div>
         <h1>Ticket Status & Metrics Dashboard</h1>
         <div style="color:#64748b;font-size:.8rem;margin-top:.25rem">
-            Real-time analysis · Firestore backend
+           Using Google Cloude Tools (Colab · GitHub · Streamlite frontend · Firestore backend)
         </div>
     </div>
     <div class="badge">Test</div>
