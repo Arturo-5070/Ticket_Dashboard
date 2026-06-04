@@ -63,13 +63,14 @@ header[data-testid="stHeader"],
 div[data-testid="stToolbar"] {
     background-color: #0d0f14 !important;
 }
-
+#colores y formatos de los listas de despliegue
 /* ── Inputs, selects, multiselects ── */
 div[data-testid="stMultiSelect"] > div,
 div[data-testid="stSelectbox"] > div,
 .stTextInput > div > div,
 div[role="listbox"],
-div[data-baseweb="select"] > div,
+/* div[role="listbox"] ul li {color: #56636D ;}, */
+div[data-baseweb="select"] > div { color: #56636D ; },
 div[data-baseweb="popover"] {
     background-color: #1c2030 !important;
     border-color: var(--border) !important;
@@ -671,9 +672,9 @@ with col_a:
         st.plotly_chart(dark_fig(fig_asg), use_container_width=True)
 
 # ─────────────────────────────────────────────────────────────────────────────
-# TIMELINE — (Línea de Tiempo) Volumen de entradas a lo largo del tiempo soto
+# TIMELINE — (Línea de Tiempo) Volumen de entradas a lo largo del tiempo 
 # ─────────────────────────────────────────────────────────────────────────────
-st.markdown('<div class="section-title">Ticket Volume Over Time</div> <style> div[data-baseweb="select"] > div { color: #56636D ; } div[role="listbox"] ul li {color: #56636D ;} </style> ', unsafe_allow_html=True)
+st.markdown('<div class="section-title">Ticket Volume Over Time</div>', unsafe_allow_html=True)
  
 if "issue_created" in df.columns and df["issue_created"].notna().any():
 
