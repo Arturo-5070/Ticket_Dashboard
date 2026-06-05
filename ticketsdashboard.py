@@ -27,7 +27,7 @@ st.set_page_config(
 
 # ─────────────────────────────────────────────────────────────────────────────
 # NOTA: El tema oscuro base lo maneja config.toml — aquí solo se definen
-# los componentes personalizados del dashboard. Mucho más limpio y mantenible.
+# los componentes personalizados del dashboard. 
 # ───────────────────────────────────────────────────────────────────────────── 
 
 st.markdown("""
@@ -177,9 +177,6 @@ def get_db():
     """Return a cached Firestore client."""
     creds = service_account.Credentials.from_service_account_info(key_dict)
     return firestore.Client(credentials=creds, project="tickets-dashboard-56dd6")
-
-
-
 
 @st.cache_data
 def load_tickets(limit: int = 3000) -> pd.DataFrame:
