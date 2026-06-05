@@ -55,18 +55,21 @@ div[data-testid="stHorizontalBlock"] {
     color: var(--txt) !important;
     font-family: 'DM Sans', sans-serif !important;
 }
-
-/* ── Flecha de colapso/expansión del sidebar ── */
-button[data-testid="collapsedControl"],
-button[data-testid="collapsedControl"]:hover {
+/* ── Flecha colapso sidebar — alta especificidad para evitar override ── */
+html body div[data-testid="collapsedControl"],
+html body div[data-testid="collapsedControl"]:hover,
+html body button[data-testid="collapsedControl"],
+html body button[data-testid="collapsedControl"]:hover {
     color: #ffffff !important;
     background-color: #10131a !important;
+    border-color: transparent !important;
 }
 
-/* ── El ícono SVG dentro de la flecha ── */
-button[data-testid="collapsedControl"] svg {
+html body div[data-testid="collapsedControl"] svg *,
+html body button[data-testid="collapsedControl"] svg * {
     fill: #ffffff !important;
     stroke: #ffffff !important;
+    color: #ffffff !important;
 }
 
 header[data-testid="stHeader"],
