@@ -21,16 +21,18 @@ st.set_page_config(
     #st.session_state.sidebar_state = 'collapsed'
 )
 
-# ─────────────────────────────────────────────────────────────────────────────
+# ══════════════════════════════════════════════════════════════════════════════
 # THEME / CSS  —  Tema obscuro, ignora las preferencia/configuración del Sistema Operativo / Navegador.
-# ─────────────────────────────────────────────────────────────────────────────
-st.markdown("""
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+# ══════════════════════════════════════════════════════════════════════════════
 
-/* ══════════════════════════════════════════════════════════════════════════════
-   NOTA: El tema oscuro base lo maneja config.toml — aquí solo se definen
-   los componentes personalizados del dashboard. Mucho más limpio y mantenible.
-   ══════════════════════════════════════════════════════════════════════════════ */
+# ─────────────────────────────────────────────────────────────────────────────
+# NOTA: El tema oscuro base lo maneja config.toml — aquí solo se definen
+# los componentes personalizados del dashboard. Mucho más limpio y mantenible.
+# ───────────────────────────────────────────────────────────────────────────── 
+
+st.markdown("""
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap');
 
 /* ── Variables de color — se alinean con config.toml ── */
 :root {
@@ -163,7 +165,7 @@ div[data-baseweb="tag"] {
     margin-left: .4rem;
 }
 
-
+</style>
 """, unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────────────────────────────────────
