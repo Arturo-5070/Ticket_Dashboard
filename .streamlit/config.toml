@@ -1,0 +1,10 @@
+[theme]
+# ── Tema base: dark — el usuario puede cambiarlo desde el menú superior derecho ──
+base                     = "dark"
+
+# ── Paleta personalizada alineada con el dashboard ──
+backgroundColor          = "#0d0f14"
+secondaryBackgroundColor = "#161922"
+textColor                = "#e2e8f0"
+primaryColor             = "#f97316"
+font                     = "sans serif"

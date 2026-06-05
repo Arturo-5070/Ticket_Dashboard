@@ -21,15 +21,15 @@ st.set_page_config(
     #st.session_state.sidebar_state = 'collapsed'
 )
 
-# ─────────────────────────────────────────────────────────────────────────────
-# THEME / CSS  —  Tema obscuro, ignora las preferencia/configuración del Sistema Operativo / Navegador.
-# ─────────────────────────────────────────────────────────────────────────────
-st.markdown("""
-<style>
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap');
-/* ── Hay que tener cuidado con los siguientes colores y donde se estan aplicando ── */
-:root, html[data-theme], html[data-theme="light"], html[data-theme="dark"] {
-    color-scheme: dark !important;
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   NOTA: El tema oscuro base lo maneja config.toml — aquí solo se definen
+   los componentes personalizados del dashboard. Mucho más limpio y mantenible.
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+/* ── Variables de color — se alinean con config.toml ── */
+:root {
     --bg:        #0d0f14;
     --surface:   #161922;
     --border:    #252a36;
@@ -42,112 +42,22 @@ st.markdown("""
     --txt-muted: #64748b;
 }
 
-html, body,
-.stApp, .stApp > div,
-.main, .main > div,
-[class*="css"],
-.block-container,
-div[data-testid="stAppViewContainer"],
-div[data-testid="stAppViewBlockContainer"],
-div[data-testid="stVerticalBlock"],
-div[data-testid="stHorizontalBlock"] {
-    background-color: var(--bg) !important;
-    color: var(--txt) !important;
+/* ── Fuente global ── */
+html, body, [class*="css"] {
     font-family: 'DM Sans', sans-serif !important;
 }
 
-
-header[data-testid="stHeader"],
-div[data-testid="stToolbar"] {
-    background-color: #0d0f14 !important;
-}
-
-/* ── Inputs, selects, multiselects — backgrounds ── */
-div[data-testid="stMultiSelect"] > div,
-div[data-testid="stSelectbox"] > div,
-.stTextInput > div > div,
-div[role="listbox"],
-div[data-baseweb="select"] {
-    background-color: #1c2030 !important;
-    border-color: var(--border) !important;
-}
-
-/* ── Dropdown selected value & placeholder text (listas) ── */
-div[data-baseweb="select"] span,
-div[data-baseweb="select"] div[class*="ValueContainer"] span,
-div[data-baseweb="select"] div[class*="singleValue"],
-div[data-baseweb="select"] div[class*="placeholder"],
-div[data-baseweb="select"] [data-testid="stWidgetLabel"] ~ div {
-    color: #2D4256 !important;
-}
-
-/* ── Open dropdown list — background ── */
+/* ── Inputs y selects — solo el fondo oscuro personalizado ── */
+div[data-baseweb="select"] > div,
 div[data-baseweb="popover"] {
     background-color: #1c2030 !important;
     border-color: var(--border) !important;
 }
-
-/* ── Open dropdown list — option text ── */
-div[data-baseweb="popover"] li,
-div[data-baseweb="popover"] li span,
-div[data-baseweb="popover"] [role="option"],
-div[data-baseweb="popover"] [role="option"] span,
-div[data-baseweb="menu"] li,
-div[data-baseweb="menu"] li span {
-    color: #2D4256 !important;
-}
-
-/* ── Multiselect chips ── */
 div[data-baseweb="tag"] {
     background-color: #252a36 !important;
 }
-div[data-baseweb="tag"] span {
-    color: #2D4256 !important;
-}
 
-/* ── Checkboxes / Labels — Aqui hay que delimitar bien los estilo para que NO se apliquen de forma global div/span ── */
-label[data-testid="stCheckbox"] span { color: var(--txt) !important; }
-p, label { color: var(--txt) !important; }
-
-hr { border-color: var(--border) !important; }
-
-div[data-testid="stPlotlyChart"] > div {
-    background-color: transparent !important;
-}
-
-div[data-testid="stDataFrame"] iframe,
-div[data-testid="stDataFrame"] > div {
-    background-color: var(--surface) !important;
-    color: var(--txt) !important;
-}
-
-section[data-testid="stSidebar"],
-section[data-testid="stSidebar"] > div {
-    background-color: #10131a !important;
-    border-right: 1px solid var(--border) !important;
-}
-section[data-testid="stSidebar"] label,
-section[data-testid="stSidebar"] p,
-section[data-testid="stSidebar"] span {
-    color: var(--txt) !important;
-}
-section[data-testid="stSidebar"] .stSelectbox label,
-section[data-testid="stSidebar"] .stMultiSelect label,
-section[data-testid="stSidebar"] .stTextInput label {
-    font-size: .8rem !important;
-    font-weight: 600 !important;
-    text-transform: uppercase !important;
-    letter-spacing: .06em !important;
-    color: var(--txt-muted) !important;
-}
-
-.stCaption, small, [data-testid="stCaptionContainer"] {
-    color: var(--txt-muted) !important;
-}
-
-button[kind="primary"]   { background-color: var(--accent)  !important; border: none !important; }
-button[kind="secondary"] { background-color: var(--surface) !important; border: 1px solid var(--border) !important; color: var(--txt) !important; }
-
+/* ── Franja del Header ── */
 .dash-header {
     background: linear-gradient(135deg, #1a1f2e 0%, #0d1117 100%);
     border-bottom: 2px solid var(--accent);
@@ -160,13 +70,13 @@ button[kind="secondary"] { background-color: var(--surface) !important; border: 
 .dash-header h1 {
     font-family: 'Space Mono', monospace;
     font-size: 1.6rem;
-    color: #fff !important;
+    color: #fff;
     margin: 0;
     letter-spacing: -0.02em;
 }
 .dash-header .badge {
     background: var(--accent);
-    color: #fff !important;
+    color: #fff;
     font-size: .7rem;
     font-weight: 700;
     padding: .2rem .6rem;
@@ -177,6 +87,7 @@ button[kind="secondary"] { background-color: var(--surface) !important; border: 
     margin-top: .2rem;
 }
 
+/* ── KPI tarjetas ── */
 .kpi-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -184,7 +95,7 @@ button[kind="secondary"] { background-color: var(--surface) !important; border: 
     margin-bottom: 1.5rem;
 }
 .kpi-card {
-    background: var(--surface) !important;
+    background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 10px;
     padding: 1.1rem 1.3rem;
@@ -206,33 +117,35 @@ button[kind="secondary"] { background-color: var(--surface) !important; border: 
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: .08em;
-    color: var(--txt-muted) !important;
+    color: var(--txt-muted);
     margin-bottom: .4rem;
 }
 .kpi-value {
     font-family: 'Space Mono', monospace;
-    font-size: clamp(1rem, 3.5vw, 2rem);
+    font-size: clamp(1rem, 3.5vw, 2rem);   /* fluido: se adapta a mobile/desktop */
     font-weight: 700;
-    color: var(--txt) !important;
+    color: var(--txt);
     line-height: 1;
 }
 .kpi-sub {
     font-size: .73rem;
-    color: var(--txt-muted) !important;
+    color: var(--txt-muted);
     margin-top: .35rem;
 }
 
+/* ── Cabeceras de sección ── */
 .section-title {
     font-family: 'Space Mono', monospace;
     font-size: .85rem;
     letter-spacing: .1em;
     text-transform: uppercase;
-    color: var(--accent) !important;
+    color: var(--accent);
     margin: 1.5rem 0 .75rem;
     padding-left: .75rem;
     border-left: 3px solid var(--accent);
 }
 
+/* ── Fichas para el conteo ── */
 .count-chip {
     display: inline-block;
     background: var(--border);
@@ -241,34 +154,11 @@ button[kind="secondary"] { background-color: var(--surface) !important; border: 
     font-size: .72rem;
     font-weight: 700;
     font-family: 'Space Mono', monospace;
-    color: var(--txt) !important;
+    color: var(--txt);
     vertical-align: middle;
     margin-left: .4rem;
 }
 
-/* ── Refresh data button — texto blanco ── */
-section[data-testid="stSidebar"] div[data-testid="stButton"] > button,
-section[data-testid="stSidebar"] div[data-testid="stButton"] > button:hover,
-section[data-testid="stSidebar"] div[data-testid="stButton"] > button:focus,
-section[data-testid="stSidebar"] div[data-testid="stButton"] > button:active {
-    color: #ffffff !important;
-    border-color: #ffffff !important;
-}
-
-/* ── Flecha colapso sidebar — debe ir AL FINAL para ganar la cascada ── */
-[data-testid="collapsedControl"] {
-    color: #ffffff !important;
-    background-color: #10131a !important;
-}
-[data-testid="collapsedControl"] svg,
-[data-testid="collapsedControl"] svg path,
-[data-testid="collapsedControl"] svg polyline,
-[data-testid="collapsedControl"] svg line {
-    fill: #ffffff !important;
-    stroke: #ffffff !important;
-}
-</style>
-""", unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # FIRESTORE — Conexion y carga de los datos (se usa el caché para mayor rápidez)
