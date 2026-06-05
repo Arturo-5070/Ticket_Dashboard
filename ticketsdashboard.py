@@ -55,22 +55,7 @@ div[data-testid="stHorizontalBlock"] {
     color: var(--txt) !important;
     font-family: 'DM Sans', sans-serif !important;
 }
-/* ── Flecha colapso sidebar — alta especificidad para evitar override ── */
-html body div[data-testid="collapsedControl"],
-html body div[data-testid="collapsedControl"]:hover,
-html body button[data-testid="collapsedControl"],
-html body button[data-testid="collapsedControl"]:hover {
-    color: #ffffff !important;
-    background-color: #10131a !important;
-    border-color: transparent !important;
-}
 
-html body div[data-testid="collapsedControl"] svg *,
-html body button[data-testid="collapsedControl"] svg * {
-    fill: #ffffff !important;
-    stroke: #ffffff !important;
-    color: #ffffff !important;
-}
 
 header[data-testid="stHeader"],
 div[data-testid="stToolbar"] {
@@ -87,7 +72,7 @@ div[data-baseweb="select"] {
     border-color: var(--border) !important;
 }
 
-/* ── Dropdown selected value & placeholder text ── */
+/* ── Dropdown selected value & placeholder text (listas) ── */
 div[data-baseweb="select"] span,
 div[data-baseweb="select"] div[class*="ValueContainer"] span,
 div[data-baseweb="select"] div[class*="singleValue"],
@@ -259,6 +244,28 @@ button[kind="secondary"] { background-color: var(--surface) !important; border: 
     color: var(--txt) !important;
     vertical-align: middle;
     margin-left: .4rem;
+}
+
+/* ── Refresh data button — texto blanco ── */
+section[data-testid="stSidebar"] div[data-testid="stButton"] > button,
+section[data-testid="stSidebar"] div[data-testid="stButton"] > button:hover,
+section[data-testid="stSidebar"] div[data-testid="stButton"] > button:focus,
+section[data-testid="stSidebar"] div[data-testid="stButton"] > button:active {
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+}
+
+/* ── Flecha colapso sidebar — debe ir AL FINAL para ganar la cascada ── */
+[data-testid="collapsedControl"] {
+    color: #ffffff !important;
+    background-color: #10131a !important;
+}
+[data-testid="collapsedControl"] svg,
+[data-testid="collapsedControl"] svg path,
+[data-testid="collapsedControl"] svg polyline,
+[data-testid="collapsedControl"] svg line {
+    fill: #ffffff !important;
+    stroke: #ffffff !important;
 }
 </style>
 """, unsafe_allow_html=True)
