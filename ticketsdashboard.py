@@ -32,9 +32,7 @@ st.markdown("""
     color-scheme: dark !important;
     --bg:        #0d0f14;
     --surface:   #161922;
-    --surface2:  #c1cfdc;
     --border:    #252a36;
-    --border2:   #cad2e4;
     --accent:    #f97316;
     --accent2:   #6366f1;
     --danger:    #ef4444;
@@ -56,6 +54,19 @@ div[data-testid="stHorizontalBlock"] {
     background-color: var(--bg) !important;
     color: var(--txt) !important;
     font-family: 'DM Sans', sans-serif !important;
+}
+
+/* ── Flecha de colapso/expansión del sidebar ── */
+button[data-testid="collapsedControl"],
+button[data-testid="collapsedControl"]:hover {
+    color: #ffffff !important;
+    background-color: #10131a !important;
+}
+
+/* ── El ícono SVG dentro de la flecha ── */
+button[data-testid="collapsedControl"] svg {
+    fill: #ffffff !important;
+    stroke: #ffffff !important;
 }
 
 header[data-testid="stHeader"],
@@ -147,7 +158,7 @@ section[data-testid="stSidebar"] .stTextInput label {
 }
 
 button[kind="primary"]   { background-color: var(--accent)  !important; border: none !important; }
-button[kind="secondary"] { background-color: var(--surface2) !important; border: 1px solid var(--border2) !important; color: var(--txt) !important; }
+button[kind="secondary"] { background-color: var(--surface) !important; border: 1px solid var(--border) !important; color: var(--txt) !important; }
 
 .dash-header {
     background: linear-gradient(135deg, #1a1f2e 0%, #0d1117 100%);
