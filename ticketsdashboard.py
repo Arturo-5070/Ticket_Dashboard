@@ -176,7 +176,7 @@ div[data-baseweb="tag"] {
 def get_db():
     """Return a cached Firestore client."""
     creds = service_account.Credentials.from_service_account_info(key_dict)
-    return firestore.Client(credentials=creds, project="tickets")
+    return firestore.Client(credentials=creds, project="tickets-dashboard-56dd6")
 
 @st.cache_data
 def load_tickets(limit: int = 3000) -> pd.DataFrame:
