@@ -21,6 +21,10 @@ st.set_page_config(
     #st.session_state.sidebar_state = 'collapsed'
 )
 
+# ─────────────────────────────────────────────────────────────────────────────
+# THEME / CSS  —  Tema obscuro, ignora las preferencia/configuración del Sistema Operativo / Navegador.
+# ─────────────────────────────────────────────────────────────────────────────
+st.markdown("""
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap');
 
 /* ══════════════════════════════════════════════════════════════════════════════
@@ -159,6 +163,8 @@ div[data-baseweb="tag"] {
     margin-left: .4rem;
 }
 
+
+""", unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # FIRESTORE — Conexion y carga de los datos (se usa el caché para mayor rápidez)
